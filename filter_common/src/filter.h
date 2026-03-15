@@ -59,6 +59,15 @@ public:
     constexpr auto GetVideoFilterNames() const -> const std::vector<std::wstring> & { return _videoFilterNames; }
     auto GetFrameServerState() const -> AvsState;
 
+    void SetFrameServerCore(
+#ifdef AVSF_AVISYNTH
+    void *
+#else
+    VSCore *
+#endif
+    core
+    ) { _inputVideoFormat.frameServerCore = core; }
+
     std::unique_ptr<FrameHandler> frameHandler = std::make_unique<FrameHandler>(*this);
 
 private:

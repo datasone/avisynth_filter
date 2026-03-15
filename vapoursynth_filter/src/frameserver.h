@@ -65,7 +65,7 @@ protected:
 
     DISABLE_COPYING(FrameServerBase)
 
-    auto ReloadScript(const AM_MEDIA_TYPE &mediaType, bool ignoreDisconnect, const CSynthFilter *filter) -> bool;
+    auto ReloadScript(const AM_MEDIA_TYPE &mediaType, bool ignoreDisconnect, const CSynthFilter *filter, bool dummy = false) -> bool;
     auto StopScript() -> void;
 
     VSScript *_vsScript = nullptr;
@@ -103,7 +103,7 @@ class AuxFrameServer
 public:
     CTOR_WITHOUT_COPYING(AuxFrameServer)
 
-    auto ReloadScript(const AM_MEDIA_TYPE &mediaType, bool ignoreDisconnect) -> bool;
+    auto ReloadScript(const AM_MEDIA_TYPE &mediaType, bool ignoreDisconnect, bool dummy = false) -> bool;
     auto GenerateMediaType(const Format::PixelFormat &pixelFormat, const AM_MEDIA_TYPE *templateMediaType) const -> CMediaType;
     auto GetScriptPixelType() const -> uint32_t;
 
